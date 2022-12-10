@@ -3,3 +3,9 @@ variable "vpc_name" {
   type        = string
   default     = "test"
 }
+
+variable "profile" {
+  description = "Profile name"
+  type        = string
+  default     = "terraform"
+}

@@ -1,6 +1,6 @@
-provider "aws" {
-  region = local.region
-}
+# provider "aws" {
+#   region = local.region
+# }
 
 locals {
   region = "us-east-1"
@@ -33,8 +33,10 @@ module "vpc" {
     Name = "public"
   }
 
-  tags = local.tags
+  public_access_port=443
+  instance_access_port=8080
 
+  tags = local.tags
   vpc_tags = {
     Name = "abc"
   }
@@ -56,8 +58,8 @@ module "alb" {
   vpc_id=module.vpc.vpc_id
   instance_id=module.ec2.instance_id
   acm_arn=module.acm.acm_arn
-  domain_name = "SUB_DOMAIN"
-  root_domain_name="ROOT_DOMAIN_NAME"
+  domain_name = "test.aadhanejournal.com"
+  root_domain_name="aadhanejournal.com"
 }
 
 ################################################################################
@@ -66,6 +68,7 @@ module "alb" {
 module "acm" {
   source = "../modules/acm/"
   root_domain_name="aadhanejournal.com"
+  acm_domain_name="*.aadhanejournal.com"
 }
 
 ################################################################################

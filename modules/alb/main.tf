@@ -9,16 +9,11 @@ resource "aws_lb" "this" {
 
 resource "aws_lb_target_group" "this" {
   name     = "alb-tg"
-  port     = var.lb_port
-  protocol = var.lb_protocol
+  port     = var.instance_port
+  protocol = var.instance_protocol
   vpc_id   = var.vpc_id
 }
 
-# # Create a new ALB Target Group attachment
-# resource "aws_autoscaling_attachment" "this" {
-#   autoscaling_group_name = var.autoscaling_group_name
-#   lb_target_group_arn    = aws_lb_target_group.this.arn
-# }
 
 resource "aws_lb_target_group_attachment" "this" {
   target_group_arn = aws_lb_target_group.this.arn
