@@ -38,8 +38,9 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_acm"></a> [acm](#module\_acm) | ../modules/acm/ | n/a |
 | <a name="module_alb"></a> [alb](#module\_alb) | ../modules/alb/ | n/a |
-| <a name="module_asg"></a> [asg](#module\_asg) | ../modules/autoscaling/ | n/a |
+| <a name="module_ec2"></a> [ec2](#module\_ec2) | ../modules/ec2/ | n/a |
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | ../modules/vpc/ | n/a |
 
 ## Resources
@@ -50,9 +51,17 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | The Name of the VPC | `string` | `"abc"` | no |
+| <a name="input_profile"></a> [profile](#input\_profile) | Profile name | `string` | `"terraform"` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_acm_id"></a> [acm\_id](#output\_acm\_id) | The ID of the Instance |
+| <a name="output_alb_id"></a> [alb\_id](#output\_alb\_id) | The ID of the Instance |
+| <a name="output_ec2_instance_id"></a> [ec2\_instance\_id](#output\_ec2\_instance\_id) | The ID of the Instance |
+| <a name="output_private_subnet_ids"></a> [private\_subnet\_ids](#output\_private\_subnet\_ids) | The ID of the Instance |
+| <a name="output_public_subnet_ids"></a> [public\_subnet\_ids](#output\_public\_subnet\_ids) | The ID of the Instance |
+| <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | The ID of the Instance |
+
 <!-- END_TF_DOCS -->
