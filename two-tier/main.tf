@@ -18,7 +18,7 @@ locals {
 module "vpc" {
   source = "../modules/vpc/"
 
-  name = var.vpc_name
+  name = "MyProject"
   cidr = "10.2.0.0/16"
 
   azs             = ["${local.region}b", "${local.region}c", "${local.region}d"]
@@ -29,16 +29,16 @@ module "vpc" {
   enable_nat_gateway = false
   single_nat_gateway = true
 
-  public_subnet_tags = {
-    Name = "public"
-  }
+  # public_subnet_tags = {
+  #   Name = "MyProjectPublicSubnet"
+  # }
 
   public_access_port=443
   instance_access_port=8080
 
-  tags = local.tags
+  # tags = local.tags
   vpc_tags = {
-    Name = "abc"
+    Name = "MyProjectVPC"
   }
 }
 
@@ -47,7 +47,7 @@ module "vpc" {
 ################################################################################
 module "alb" {
   source = "../modules/alb/"
-  alb_name = "public-alb"
+  alb_name = "MyProjectALB"
   security_group_ids = [module.vpc.sg_public_id]
   subnets = module.vpc.public_subnets
   cross_zone_load_balancing = true
@@ -80,6 +80,6 @@ module "ec2" {
   instance_type = "t2.micro"
   subnet_id = module.vpc.private_subnets[0]
   az = "us-east-1b"
-  tags = local.tags
+  ec2_name = "MyProjectEC2"
   security_group_ids = [module.vpc.sg_private_id]
 }

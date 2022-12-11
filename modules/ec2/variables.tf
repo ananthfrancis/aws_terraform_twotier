@@ -13,8 +13,13 @@ variable "subnet_id" {
 
 variable "tags" {
     type = any
+    default = {}
 }
 
 variable "security_group_ids" {
     type = any
+}
+
+variable "ec2_name" {
+  type    = string
 }
