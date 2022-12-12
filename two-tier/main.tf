@@ -82,4 +82,5 @@ module "ec2" {
   az = "us-east-1b"
   ec2_name = "MyProjectEC2"
   security_group_ids = [module.vpc.sg_private_id]
+  key_name  = "GrowingTrust"
 }

@@ -4,6 +4,7 @@ resource "aws_instance" "this" {
   subnet_id            = var.subnet_id
   iam_instance_profile = aws_iam_instance_profile.this.name
   vpc_security_group_ids = var.security_group_ids
+  key_name      = var.key_name
   tags = {
     Name = var.ec2_name
   }
