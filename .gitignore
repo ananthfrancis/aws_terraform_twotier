@@ -1,4 +1,4 @@
-./two-tier/.terraform
-./two-tier/.terraform.lock.hcl
-./two-tier/terraform.tfstate
-./two-tier/terraform.tfstate.backup
+two-tier/.terraform/
+two-tier/.terraform.lock.hcl
+two-tier/terraform.tfstate
+two-tier/terraform.tfstate.backup
